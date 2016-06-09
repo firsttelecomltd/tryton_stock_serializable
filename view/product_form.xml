@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<data>
+  <xpath expr="/form/field[@name='description']" position="after">
+    <field name="completed_serial_numbers" colspan="3" 
+           view_ids="stock_serializable.product_completed_serial_numbers_tree"/>
+    <field name="pending_serial_numbers" colspan="3" 
+           view_ids="stock_serializable.product_pending_serial_numbers_tree"/>
+  </xpath>
+</data>

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<data>
+    <xpath expr="/form/separator[@id='separator']" position="before">
+        <field name="input_serial_numbers" colspan="4" 
+               view_ids="stock_serializable.serial_number_tree_simple"/>
+        <field name="output_serial_numbers" colspan="4" 
+               view_ids="stock_serializable.serial_number_tree_simple"/>
+    </xpath>
+</data>

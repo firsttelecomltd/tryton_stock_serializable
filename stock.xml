@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+
+<tryton>
+  <data>
+    <record model="ir.ui.view" id="move_view_form">
+      <field name="model">stock.move</field>
+      <field name="inherit" ref="stock.move_view_form"/>
+      <field name="name">move_form</field>
+    </record>
+
+    <record model="ir.model.field.access" id="output_serial_numbers_access">
+      <field name="field" 
+             search="[('model.model', '=', 'stock.move'), ('name', '=', 'output_serial_numbers')]"/>
+      <field name="perm_read" eval="True"/>
+      <field name="perm_write" eval="True"/>
+      <field name="perm_create" eval="False"/>
+      <field name="perm_delete" eval="False"/>
+    </record>
+
+    <record model="ir.ui.view" id="serial_number_form">
+      <field name="model">stock.move.serial_number</field>
+      <field name="type">form</field>
+      <field name="name">serial_number_form</field>
+    </record>
+
+    <record model="ir.ui.view" id="serial_number_form_view">
+      <field name="model">stock.move.serial_number</field>
+      <field name="type">form</field>
+      <field name="name">serial_number_form_view</field>
+    </record>
+
+    <record model="ir.ui.view" id="serial_number_tree_simple">
+      <field name="model">stock.move.serial_number</field>
+      <field name="type">tree</field>
+      <field name="name">serial_number_tree_simple</field>
+    </record>
+
+    <record model="ir.ui.view" id="serial_number_tree">
+      <field name="model">stock.move.serial_number</field>
+      <field name="type">tree</field>
+      <field name="name">serial_number_tree</field>
+    </record>
+
+    <record model="ir.action.act_window" id="act_serial_number_form">
+      <field name="name">Serial Numbers</field>
+      <field name="res_model">stock.move.serial_number</field>
+    </record>
+    <record model="ir.action.act_window.view" id="act_serial_number_list_view">
+      <field name="sequence" eval="100"/>
+      <field name="view" ref="serial_number_tree"/>
+      <field name="act_window" ref="act_serial_number_form"/>
+    </record>
+    <record model="ir.action.act_window.view" id="act_serial_number_form_view">
+      <field name="sequence" eval="200"/>
+      <field name="view" ref="serial_number_form_view"/>
+      <field name="act_window" ref="act_serial_number_form"/>
+    </record>
+    <record model="ir.action.act_window.domain" id="act_serial_number_form_domain_all">
+      <field name="name">All</field>
+      <field name="sequence" eval="10"/>
+      <field name="domain"></field>
+      <field name="act_window" ref="act_serial_number_form"/>
+    </record>
+    <record model="ir.action.act_window.domain" id="act_serial_number_form_domain_draft">
+      <field name="name">Draft</field>
+      <field name="sequence" eval="20"/>
+      <field name="domain">[('state', '=', 'draft')]</field>
+      <field name="act_window" ref="act_serial_number_form"/>
+    </record>
+    <record model="ir.action.act_window.domain" id="act_serial_number_form_domain_stored">
+      <field name="name">Stored</field>
+      <field name="sequence" eval="30"/>
+      <field name="domain">[('state', '=', 'stored')]</field>
+      <field name="act_window" ref="act_serial_number_form"/>
+    </record>
+    <record model="ir.action.act_window.domain" id="act_serial_number_form_domain_completed">
+      <field name="name">Completed</field>
+      <field name="sequence" eval="30"/>
+      <field name="domain">[('state', '=', 'completed')]</field>
+      <field name="act_window" ref="act_serial_number_form"/>
+    </record>
+
+    <menuitem parent="product.menu_template" sequence="100" id="menu_serial_number" 
+              action="act_serial_number_form"/>
+
+    <record model="ir.rule.group" id="rule_group_serial_number">
+      <field name="model" search="[('model', '=', 'stock.move.serial_number')]"/>
+      <field name="global_p" eval="True"/>
+    </record>
+    <record model="ir.rule" id="rule_serial_number">
+      <field name="domain">[('input_move.company', '=', user.company.id if user.company else None)]</field>
+      <field name="rule_group" ref="rule_group_serial_number"/>
+    </record>
+  </data>
+</tryton>

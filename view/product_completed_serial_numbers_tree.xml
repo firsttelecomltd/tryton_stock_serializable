@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<tree string="Serial Numbers" sequence="sequence">
+    <field name="state"/>
+    <field name="serial_number"/>
+    <field name="sequence" tree_invisible="1"/>
+</tree>

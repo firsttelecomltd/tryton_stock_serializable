@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<form string="Serial Number" cursor="serial_number">
+  <label name="serial_number"/>
+  <field name="serial_number" colspan="3"/>
+  <label name="sequence"/>
+  <field name="sequence"/>
+</form>

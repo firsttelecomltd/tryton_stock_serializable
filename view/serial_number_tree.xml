@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<tree string="Serial Numbers">
+  <field name="product"/>
+  <field name="serial_number"/>
+  <field name="input_move"/>
+  <field name="output_move"/>
+  <field name="input_date"/>
+  <field name="output_date"/>
+  <field name="state"/>
+</tree>

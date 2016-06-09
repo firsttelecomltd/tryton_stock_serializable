@@ -1,0 +1,13 @@
+Serial Numbers in Stock Moves
+
+In some cases, it is very important for the warehouse to be able to handle serial numbers of the products that are stored or they have left. Because, at anytime someone can review the state of a specific product, for what reason it left the warehouse, what was the warehouse that have been stored and then left and many more.
+
+A solution to that problem could be a new model 'Serial Number' which will keep track of all this activity relating the existing 'Stock Move' model. Since 'Stock Move' already relates to a shipment and to a product and represents a product movement from or to the warehouse, we have all the information we need.
+
+The new model 'Serial Number' ('stock.move.serial_number') will have the fields:
+serial_number -> (string)
+input_move -> (Many2One relationship with stock.move)
+output_move -> (Many2One relationship with stock.move)
+
+Every time a product enters the warehouse it gets a serial_number and the input_move relationship links to the input stock move.
+When the product leaves the warehouse, the output_move of the serial number links to the output stock move.

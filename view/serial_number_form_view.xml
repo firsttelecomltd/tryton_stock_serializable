@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<form string="Serial Number" cursor="serial_number">
+  <label name="serial_number"/>
+  <field name="serial_number"/>
+
+  <label name="product"/>
+  <field name="product"/>
+
+  <label name="input_move"/>
+  <field name="input_move"/>
+
+  <label name="input_date"/>
+  <field name="input_date"/>
+
+  <label name="output_move"/>
+  <field name="output_move"/>
+
+  <label name="output_date"/>
+  <field name="output_date"/>
+</form>
